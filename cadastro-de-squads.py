@@ -36,10 +36,8 @@ class Dev(Colaborador):
 
     def exibir(self):
         super().exibir()
-        print(f'  Cargo de {self.cargo} na squad {self.squad.nome}\n')
+        print(f'   Cargo de {self.cargo} na squad {self.squad.nome}\n')
 
-    def incluir_dev(self, dev):
-        self.devs.append(dev)
 
 
 print('\n-==-=-=-=-=-=-=-=-=-=-=-Sky.One Solutions=-=-=-=-=-=-=-=-=-=-')
@@ -66,19 +64,22 @@ while True:
         dev.incluir_squad(squad)
         squad.incluir_dev(dev)
 
-        option = input('Deseja adicionar mais um dev [S/N]: ')
+        option = input('Deseja adicionar mais um dev [S/N]')
         if option in 'Nn':
             break
 
-    option = input('\nDeseja adicionar mais uma squad [S/N]: ')
+    option = input('\nDeseja adicionar mais uma squad [S/N]')
     if option in 'Nn':
         break
 
-    for squad in squads:
-        print(f'\n------------------------------{squad.nome}------------------------------')
-        print(f'TechLead: {squad.techlead.nome}')
-        print('\n-----Devs do squad-----')
-        for dev in squad.devs:
-            dev.exibir()
-        print(f'-----------------------------{squad.nome}------------------------------')
-        print('\n-==-=-=-=-=-=-=-=-=-=-=Sky.One Solutions=-=-=-=-=-=-=-=-=-=')
+for squad in squads:
+    print(f'\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')
+    print('Squads criadas:')
+    print(f'\n------------------------------{squad.nome}------------------------------')
+    print(f'TechLead: {squad.techlead.nome} - {squad.techlead.fone}')
+    print('\n-----Devs do squad-----')
+    for dev in squad.devs:
+        dev.exibir()
+    print(f'--------------------------------{squad.nome}------------------------------')
+
+print('\n-==-=-=-=-=-=-=-=-=-=-=Sky.One Solutions=-=-=-=-=-=-=-=-=-=-')
